@@ -52,14 +52,30 @@ function validateMobileNumber()
 function validatePassword()
 {
 	read -p "Enter your password:" password
-	patternForPassword="^.{8,}$"
+	patternForPassword="^.{8,}"
 	patternForPassword2="[A-Z]{1,}"
 	patternForPassword3="[0-9]{1,}"
-	if [[ $password =~ $patternForPassword3 ]]
+	patternForPassword4="^[0-9A-Za-z]*[!@#$%&][A-Za-z0-9]*$"
+	if [[ $password =~ $patternForPassword ]]
 	then
-		echo Valid
+		if [[ $password =~ $patternForPassword2 ]]
+		then
+			if [[ $password =~ $patternForPassword3 ]]
+			then
+				if [[ $password =~ $patternForPassword4 ]]
+				then
+					echo Valid
+				else
+					echo "Invalid password. password should contain exactly one special character"
+				fi
+			else
+				echo "Invalid password. password should at least one numeric character"
+			fi
+		else
+			echo "Invalid password. password should contain at least one Uppercase alphabet"
+		fi
 	else
-		echo Invalid
+		echo "Invalid password. password should be of minimum 8 characters"
 	fi
 }
 echo "Welcome to user registration problem "
