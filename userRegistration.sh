@@ -52,8 +52,9 @@ function validateMobileNumber()
 function validatePassword()
 {
 	read -p "Enter your password:" password
-	patternForPassword="^.{8}$"
-	if [[ $password =~ $patternForPassword ]]
+	patternForPassword="^.{8,}$"
+	patternForPassword2="[A-Z]{1,}"
+	if [[ $password =~ $patternForPassword2 ]]
 	then
 		echo Valid
 	else
@@ -61,8 +62,8 @@ function validatePassword()
 	fi
 }
 echo "Welcome to user registration problem "
-#validateFirstName
-#validateLastName
-#validateEmailId
-#validateMobileNumber
+validateFirstName
+validateLastName
+validateEmailId
+validateMobileNumber
 validatePassword
