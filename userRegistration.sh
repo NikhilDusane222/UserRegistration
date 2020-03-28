@@ -1,7 +1,10 @@
 #!/bin/bash -x
+
+printf "Welcome to user registration problem \n"
+
 # Constants
 COUNTRY_CODE=91
-
+#function for valid first name
 function validateFirstName()
 {
 	read -p "Enter the first name:" firstName
@@ -15,6 +18,7 @@ function validateFirstName()
 	fi
 }
 
+#function for valid last name
 function validateLastName()
 {
 	read -p "Enter the last name:" lastName
@@ -27,6 +31,8 @@ function validateLastName()
 		echo Invalid
 	fi
 }
+
+#function for valid email id
 function validateEmailId()
 {
 	read -p "Enter your email id:" emailId
@@ -38,6 +44,8 @@ function validateEmailId()
 		echo Invalid
 	fi
 }
+
+#function for valid mobile number
 function validateMobileNumber()
 {
 	read -p "Enter your mobile number:" mobileNumber
@@ -49,6 +57,8 @@ function validateMobileNumber()
 		echo Invalid
 	fi
 }
+
+#function for valid password
 function validatePassword()
 {
 	read -p "Enter your password:" password
@@ -78,7 +88,8 @@ function validatePassword()
 		echo "Invalid password. password should be of minimum 8 characters"
 	fi
 }
-echo "Welcome to user registration problem "
+
+#function call
 validateFirstName
 validateLastName
 validateEmailId
