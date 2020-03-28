@@ -1,4 +1,6 @@
 #!/bin/bash -x
+# Constants
+COUNTRY_CODE=91
 
 function validateFirstName()
 {
@@ -34,9 +36,20 @@ function validateEmailId()
 	else
 		echo Invalid
 	fi
-	echo $result
+}
+function validateMobileNumber()
+{
+	read -p "Enter your mobile number:" mobileNumber
+	patternForMobileNumber="^$COUNTRY_CODE[ ][9876]{1}[0-9]{9}"
+	if [[ $mobileNumber =~ $patternForMobileNumber ]]
+	then
+		echo Valid
+	else
+		echo Invalid
+	fi
 }
 echo "Welcome to user registration problem "
 validateFirstName
 validateLastName
 validateEmailId
+validateMobileNumber
