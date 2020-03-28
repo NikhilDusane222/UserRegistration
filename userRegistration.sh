@@ -14,6 +14,7 @@ function validateFirstName()
 		echo Invalid
 	fi
 }
+
 function validateLastName()
 {
 	read -p "Enter the last name:" lastName
