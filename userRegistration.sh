@@ -48,8 +48,20 @@ function validateMobileNumber()
 		echo Invalid
 	fi
 }
+function validatePassword()
+{
+	read -p "Enter your password:" password
+	patternForPassword="^.{8}$"
+	if [[ $password =~ $patternForPassword ]]
+	then
+		echo Valid
+	else
+		echo Invalid
+	fi
+}
 echo "Welcome to user registration problem "
-validateFirstName
-validateLastName
-validateEmailId
-validateMobileNumber
+#validateFirstName
+#validateLastName
+#validateEmailId
+#validateMobileNumber
+validatePassword
